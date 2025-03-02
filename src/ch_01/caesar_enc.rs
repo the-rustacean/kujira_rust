@@ -5,24 +5,22 @@ fn main() {
     println!("{} => {}", enc, dec);
 }
 
-fn encrypt(sentence: &str, number: isize) -> String {
+fn encrypt(sentence: &str, shift: i16) -> String {
 
     let code_a = 'A' as i16;
     let code_z = 'Z' as i16;
+    let mut result = String::new();
 
     for ch in sentence.chars() {
         
-        let code_ch = ch as i16;
+        let mut code_ch = ch as i16;
 
-        let ch_next = if code_ch >= code_a && code_ch <= code_z {
-            let code_next = code_ch + 3;
-            char::from_u32(code_next as u32)
-        } else {
-            ch
-        };
+        if code_ch >= code_a && code_ch <= code_z {
+            code_ch = (code_ch - code_a + shift + 26) % 26 + code_a;
+        }
 
-        println!("{}: {}", ch, ch_next);
+        result.push((code_ch as u8) as char);
     }
 
-    String::from("hi")
+    result
 }
