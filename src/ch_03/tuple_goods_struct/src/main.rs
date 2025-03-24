@@ -4,7 +4,7 @@ fn main() {
     let apple = Item("애플".to_string(), 200);
     let mango = Item("망고".to_string(), 500);
 
-    let items = vec![banana, apple, mango];
+    let items = [banana, apple, mango];
 
     let total = print_and_sum_items(&items);
 
