@@ -1,5 +1,4 @@
 fn main() {
-    
     let banana = Item("바나나".to_string(), 300);
     let apple = Item("애플".to_string(), 200);
     let mango = Item("망고".to_string(), 500);
